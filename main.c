@@ -6,9 +6,7 @@
 
 // Prototypes
 char	dputchar( char c );
-int	dputs( const char *s );
-char	dgetchar( void );
-char*	dgets( char *s, int size );
+int	debug( const char *s );
 
 int main() {
 	// Now test the IO-Functions
@@ -21,6 +19,8 @@ int main() {
 		dputs( buffer );
 		dputs( "'\n\r" );
 	}*/
+	debug( "Hello world!\n\r" );
+/*
 	dputchar( 'R' );
 	dputchar( 'T' );
 	dputchar( 'E' );
@@ -28,6 +28,7 @@ int main() {
 	dputchar( 'S' );
 	dputchar( '\n' );
 	dputchar( '\r' );
+*/
 	return 0;
 }
 
@@ -45,7 +46,7 @@ char dputchar( char c ) {
 
 // This function sends a Null-terminates String via dputchar().
 // It will return the number of transmitted chars.
-int dputs( const char *s ) {
+int debug( const char *s ) {
 	int i = 0;
 	while( *s != 0 ) {
 		dputchar( *s++ );

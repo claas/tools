@@ -14,16 +14,12 @@ MKIMAGE=~/workspace/u-boot/tools/mkimage
 NANDFLASH=~/buildspace/qemu/arm-softmmu/bb_nandflash.sh
 NANDFLASH_ECC=~/buildspace/qemu/arm-softmmu/bb_nandflash_ecc
 
-ADDRESS=0x80008000
-ENTRY=0x80008000
-
+ADDRESS=0x80000000
+ENTRY=0x80000000
 
 $OBJCOPY -R -S -O binary $NAME.exe $NAME.bin
-
 cat $NAME.bin | gzip -9 >$NAME.gz
-
 $MKIMAGE -A arm -O rtems -T kernel -a $ADDRESS -e $ENTRY -n "RTEMS" -d $NAME.gz $NAME.img
-
 rm $NAME.bin $NAME.gz
 
 $NANDFLASH $XLOADER $NANDNAME x-loader
