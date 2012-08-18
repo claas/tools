@@ -16,7 +16,7 @@ NANDFLASH_ECC=~/buildspace/qemu/arm-softmmu/bb_nandflash_ecc
 $TARGET-gcc -Wall -Werror -O3 -nostdlib -nostartfiles -ffreestanding -c $NAME.c -o $NAME.o
 $TARGET-ld -T $RAMMAP $NAME.o -o $NAME.elf
 $TARGET-objcopy $NAME.elf -O binary $NAME.bin
-rm $NAME.o $NAME.elf
+#rm $NAME.o $NAME.elf
 
 $NANDFLASH $XLOADER $NANDNAME x-loader
 $NANDFLASH $UBOOT $NANDNAME u-boot
